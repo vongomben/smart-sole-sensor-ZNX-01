@@ -1,0 +1,5083 @@
+[
+    {
+        "id": "75782438c74014dc",
+        "type": "tab",
+        "label": "smart sole",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "98e7b5cdf345a8b3",
+        "type": "inject",
+        "z": "75782438c74014dc",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "rgb(0, 191, 255)",
+        "payload": "{\"command\":\"update_style\",\"selector\":\"#circle13543\",\"attributeName\":\"fill\",\"attributeValue\":\"rgb(0, 191, 255)\"}",
+        "payloadType": "json",
+        "x": 1060.1428833007812,
+        "y": 566.952392578125,
+        "wires": [
+            [
+                "25ee6296fa00480c"
+            ]
+        ]
+    },
+    {
+        "id": "25ee6296fa00480c",
+        "type": "template",
+        "z": "75782438c74014dc",
+        "name": "color grf 8",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "json",
+        "syntax": "mustache",
+        "template": "{    \n \"command\": \"update_style\",\n \"selector\": \"#circle13543\",\n \"attributeName\": \"fill\",\n \"attributeValue\": \"{{payload}}\"\n}\n",
+        "output": "json",
+        "x": 1272.476318359375,
+        "y": 763.3333129882812,
+        "wires": [
+            [
+                "d13de7ef8f60fde4",
+                "276739a932fbd730"
+            ]
+        ]
+    },
+    {
+        "id": "ea075121141cf0fa",
+        "type": "inject",
+        "z": "75782438c74014dc",
+        "name": "sole",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"gfrValue8\":1072,\"gfrValue7\":4095,\"gfrValue6\":4095,\"gfrValue5\":4095,\"gfrValue4\":4095,\"gfrValue3\":4095,\"gfrValue2\":4095,\"gfrValue1\":4095}",
+        "payloadType": "json",
+        "x": 303.33336639404297,
+        "y": 191.4285659790039,
+        "wires": [
+            [
+                "130cbfce5b8963a6"
+            ]
+        ]
+    },
+    {
+        "id": "130cbfce5b8963a6",
+        "type": "change",
+        "z": "75782438c74014dc",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload.gfrValue8",
+                "pt": "msg",
+                "to": "$random()",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 331.33335876464844,
+        "y": 236.09522247314453,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "edbceac826379e2c",
+        "type": "debug",
+        "z": "75782438c74014dc",
+        "name": "debug 64",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 745.1905517578125,
+        "y": 691.6190185546875,
+        "wires": []
+    },
+    {
+        "id": "1bdeb0253676c0d2",
+        "type": "range",
+        "z": "75782438c74014dc",
+        "minin": "0",
+        "maxin": "4096",
+        "minout": "11",
+        "maxout": "1",
+        "action": "roll",
+        "round": true,
+        "property": "payload",
+        "name": "",
+        "x": 732.3333129882812,
+        "y": 741,
+        "wires": [
+            [
+                "edbceac826379e2c",
+                "8076991575e089e5"
+            ]
+        ]
+    },
+    {
+        "id": "0f16fa9405d19e69",
+        "type": "comment",
+        "z": "75782438c74014dc",
+        "name": "fake plausible data",
+        "info": "",
+        "x": 324.33334859212226,
+        "y": 148.09523264567048,
+        "wires": []
+    },
+    {
+        "id": "d13de7ef8f60fde4",
+        "type": "debug",
+        "z": "75782438c74014dc",
+        "name": "debug 65",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1357.1429443359375,
+        "y": 873,
+        "wires": []
+    },
+    {
+        "id": "8076991575e089e5",
+        "type": "switch",
+        "z": "75782438c74014dc",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "2",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "3",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "4",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "5",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "6",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "7",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "8",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "9",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "10",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "11",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 11,
+        "x": 887.8572387695312,
+        "y": 761.2857055664062,
+        "wires": [
+            [
+                "e0945b25472a45ea"
+            ],
+            [
+                "3539b280475ddf7a"
+            ],
+            [
+                "eaddbfea4315d1be"
+            ],
+            [
+                "7de438593e302972"
+            ],
+            [
+                "e91232afe1a90ca0"
+            ],
+            [
+                "19fc8a1744da43a9"
+            ],
+            [
+                "3f0b978d7f7fd8c3"
+            ],
+            [
+                "5acf041e7efb6551"
+            ],
+            [
+                "a845c38fa1d99422"
+            ],
+            [
+                "79a01efadf39239b"
+            ],
+            [
+                "6cea07475f3c43ef"
+            ]
+        ]
+    },
+    {
+        "id": "e0945b25472a45ea",
+        "type": "change",
+        "z": "75782438c74014dc",
+        "name": "color 1",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "rgb(  0,   0, 255)",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1063.857177734375,
+        "y": 615.952392578125,
+        "wires": [
+            [
+                "25ee6296fa00480c"
+            ]
+        ]
+    },
+    {
+        "id": "3539b280475ddf7a",
+        "type": "change",
+        "z": "75782438c74014dc",
+        "name": "color 2",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "rgb(  0,  50, 204)",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1064.523780822754,
+        "y": 649.952392578125,
+        "wires": [
+            [
+                "25ee6296fa00480c"
+            ]
+        ]
+    },
+    {
+        "id": "eaddbfea4315d1be",
+        "type": "change",
+        "z": "75782438c74014dc",
+        "name": "color 3",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "rgb(  0, 101, 153)",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1064.5238609313965,
+        "y": 684.6190185546875,
+        "wires": [
+            [
+                "25ee6296fa00480c"
+            ]
+        ]
+    },
+    {
+        "id": "7de438593e302972",
+        "type": "change",
+        "z": "75782438c74014dc",
+        "name": "color 4",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "rgb(  0, 153, 101)",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1065.1904678344727,
+        "y": 718.6190185546875,
+        "wires": [
+            [
+                "25ee6296fa00480c"
+            ]
+        ]
+    },
+    {
+        "id": "e91232afe1a90ca0",
+        "type": "change",
+        "z": "75782438c74014dc",
+        "name": "color 5",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "rgb(  0, 204,  50)",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1065.8570709228516,
+        "y": 752.6190185546875,
+        "wires": [
+            [
+                "25ee6296fa00480c"
+            ]
+        ]
+    },
+    {
+        "id": "19fc8a1744da43a9",
+        "type": "change",
+        "z": "75782438c74014dc",
+        "name": "color 6 ",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "rgb(  0, 255,   0)",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1065.8571510314941,
+        "y": 787.28564453125,
+        "wires": [
+            [
+                "25ee6296fa00480c"
+            ]
+        ]
+    },
+    {
+        "id": "3f0b978d7f7fd8c3",
+        "type": "change",
+        "z": "75782438c74014dc",
+        "name": "color 7 ",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "rgb( 51, 203,   0)",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1068.5238418579102,
+        "y": 820.6190185546875,
+        "wires": [
+            [
+                "25ee6296fa00480c"
+            ]
+        ]
+    },
+    {
+        "id": "5acf041e7efb6551",
+        "type": "change",
+        "z": "75782438c74014dc",
+        "name": "color 8",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "rgb(102, 152,   0)",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1069.190444946289,
+        "y": 854.6190185546875,
+        "wires": [
+            [
+                "25ee6296fa00480c"
+            ]
+        ]
+    },
+    {
+        "id": "a845c38fa1d99422",
+        "type": "change",
+        "z": "75782438c74014dc",
+        "name": "color 9",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "rgb(153, 101,   0)",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1069.1905250549316,
+        "y": 889.28564453125,
+        "wires": [
+            [
+                "25ee6296fa00480c"
+            ]
+        ]
+    },
+    {
+        "id": "79a01efadf39239b",
+        "type": "change",
+        "z": "75782438c74014dc",
+        "name": "color 10",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "rgb(203,  51,   0)",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1082.5238418579102,
+        "y": 923.2857055664062,
+        "wires": [
+            [
+                "25ee6296fa00480c"
+            ]
+        ]
+    },
+    {
+        "id": "6cea07475f3c43ef",
+        "type": "change",
+        "z": "75782438c74014dc",
+        "name": "color 11",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "rgb(255,   0,   0)",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1082.5239219665527,
+        "y": 957.9523315429688,
+        "wires": [
+            [
+                "25ee6296fa00480c"
+            ]
+        ]
+    },
+    {
+        "id": "1c53c1f32fb54895",
+        "type": "serial in",
+        "z": "75782438c74014dc",
+        "name": "",
+        "serial": "1a86fe1f19572621",
+        "x": 82,
+        "y": 540,
+        "wires": [
+            [
+                "3edd32f9ea4922d0"
+            ]
+        ]
+    },
+    {
+        "id": "3edd32f9ea4922d0",
+        "type": "json",
+        "z": "75782438c74014dc",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 240,
+        "y": 539,
+        "wires": [
+            [
+                "b18658ddfe6f16bc",
+                "639a7ff841dfcbd3"
+            ]
+        ]
+    },
+    {
+        "id": "156b829ea5c2ea92",
+        "type": "change",
+        "z": "75782438c74014dc",
+        "name": "gfrValue8 > payload",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.gfrValue8",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 519,
+        "y": 741,
+        "wires": [
+            [
+                "1bdeb0253676c0d2"
+            ]
+        ]
+    },
+    {
+        "id": "b18658ddfe6f16bc",
+        "type": "debug",
+        "z": "75782438c74014dc",
+        "name": "debug 67",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload.gfrValue8",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 254,
+        "y": 591,
+        "wires": []
+    },
+    {
+        "id": "ccfcf288a388b63b",
+        "type": "inject",
+        "z": "75782438c74014dc",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "rgb(0, 191, 255)",
+        "payload": "{\"command\":\"update_style\",\"selector\":\"#circle13543\",\"attributeName\":\"fill\",\"attributeValue\":\"rgb(0, 191, 255)\"}",
+        "payloadType": "json",
+        "x": 1078,
+        "y": 1061,
+        "wires": [
+            [
+                "479489bd11d5db15"
+            ]
+        ]
+    },
+    {
+        "id": "479489bd11d5db15",
+        "type": "template",
+        "z": "75782438c74014dc",
+        "name": "color grf 7",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "json",
+        "syntax": "mustache",
+        "template": "{    \n \"command\": \"update_style\",\n \"selector\": \"#circle13545\",\n \"attributeName\": \"fill\",\n \"attributeValue\": \"{{payload}}\"\n}\n",
+        "output": "json",
+        "x": 1290.3334350585938,
+        "y": 1257.3809204101562,
+        "wires": [
+            [
+                "4aca2208d2191fdb"
+            ]
+        ]
+    },
+    {
+        "id": "4163c2b8f21ebaa5",
+        "type": "debug",
+        "z": "75782438c74014dc",
+        "name": "debug 69",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 763.0476684570312,
+        "y": 1185.6666259765625,
+        "wires": []
+    },
+    {
+        "id": "6a229f868a1f9a59",
+        "type": "range",
+        "z": "75782438c74014dc",
+        "minin": "0",
+        "maxin": "4096",
+        "minout": "11",
+        "maxout": "1",
+        "action": "roll",
+        "round": true,
+        "property": "payload",
+        "name": "",
+        "x": 750.1904296875,
+        "y": 1235.047607421875,
+        "wires": [
+            [
+                "4163c2b8f21ebaa5",
+                "44d4b7d87150d7d7"
+            ]
+        ]
+    },
+    {
+        "id": "44d4b7d87150d7d7",
+        "type": "switch",
+        "z": "75782438c74014dc",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "2",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "3",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "4",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "5",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "6",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "7",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "8",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "9",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "10",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "11",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 11,
+        "x": 905.71435546875,
+        "y": 1255.3333129882812,
+        "wires": [
+            [
+                "0de2a5c2c31a4acc"
+            ],
+            [
+                "ef44bd47c77dec67"
+            ],
+            [
+                "b3804576d462fb0a"
+            ],
+            [
+                "a001703a953b020b"
+            ],
+            [
+                "2b2b1d974ef454ff"
+            ],
+            [
+                "fd8ba5a3f0d15254"
+            ],
+            [
+                "de85d2a770d1c6c1"
+            ],
+            [
+                "8d2761acab54f489"
+            ],
+            [
+                "36073b63c36cecf3"
+            ],
+            [
+                "a75670e441bc7a15"
+            ],
+            [
+                "c62bb158a1d33cb2"
+            ]
+        ]
+    },
+    {
+        "id": "0de2a5c2c31a4acc",
+        "type": "change",
+        "z": "75782438c74014dc",
+        "name": "color 1",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "rgb(  0,   0, 255)",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1081.7142944335938,
+        "y": 1110,
+        "wires": [
+            [
+                "479489bd11d5db15"
+            ]
+        ]
+    },
+    {
+        "id": "ef44bd47c77dec67",
+        "type": "change",
+        "z": "75782438c74014dc",
+        "name": "color 2",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "rgb(  0,  50, 204)",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1082.3808975219727,
+        "y": 1144,
+        "wires": [
+            [
+                "479489bd11d5db15"
+            ]
+        ]
+    },
+    {
+        "id": "b3804576d462fb0a",
+        "type": "change",
+        "z": "75782438c74014dc",
+        "name": "color 3",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "rgb(  0, 101, 153)",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1082.3809776306152,
+        "y": 1178.6666259765625,
+        "wires": [
+            [
+                "479489bd11d5db15"
+            ]
+        ]
+    },
+    {
+        "id": "a001703a953b020b",
+        "type": "change",
+        "z": "75782438c74014dc",
+        "name": "color 4",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "rgb(  0, 153, 101)",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1083.0475845336914,
+        "y": 1212.6666259765625,
+        "wires": [
+            [
+                "479489bd11d5db15"
+            ]
+        ]
+    },
+    {
+        "id": "2b2b1d974ef454ff",
+        "type": "change",
+        "z": "75782438c74014dc",
+        "name": "color 5",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "rgb(  0, 204,  50)",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1083.7141876220703,
+        "y": 1246.6666259765625,
+        "wires": [
+            [
+                "479489bd11d5db15"
+            ]
+        ]
+    },
+    {
+        "id": "fd8ba5a3f0d15254",
+        "type": "change",
+        "z": "75782438c74014dc",
+        "name": "color 6 ",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "rgb(  0, 255,   0)",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1083.714267730713,
+        "y": 1281.333251953125,
+        "wires": [
+            [
+                "479489bd11d5db15"
+            ]
+        ]
+    },
+    {
+        "id": "de85d2a770d1c6c1",
+        "type": "change",
+        "z": "75782438c74014dc",
+        "name": "color 7 ",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "rgb( 51, 203,   0)",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1086.380958557129,
+        "y": 1314.6666259765625,
+        "wires": [
+            [
+                "479489bd11d5db15"
+            ]
+        ]
+    },
+    {
+        "id": "8d2761acab54f489",
+        "type": "change",
+        "z": "75782438c74014dc",
+        "name": "color 8",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "rgb(102, 152,   0)",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1087.0475616455078,
+        "y": 1348.6666259765625,
+        "wires": [
+            [
+                "479489bd11d5db15"
+            ]
+        ]
+    },
+    {
+        "id": "36073b63c36cecf3",
+        "type": "change",
+        "z": "75782438c74014dc",
+        "name": "color 9",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "rgb(153, 101,   0)",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1087.0476417541504,
+        "y": 1383.333251953125,
+        "wires": [
+            [
+                "479489bd11d5db15"
+            ]
+        ]
+    },
+    {
+        "id": "a75670e441bc7a15",
+        "type": "change",
+        "z": "75782438c74014dc",
+        "name": "color 10",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "rgb(203,  51,   0)",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1100.380958557129,
+        "y": 1417.3333129882812,
+        "wires": [
+            [
+                "479489bd11d5db15"
+            ]
+        ]
+    },
+    {
+        "id": "c62bb158a1d33cb2",
+        "type": "change",
+        "z": "75782438c74014dc",
+        "name": "color 11",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "rgb(255,   0,   0)",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1100.3810386657715,
+        "y": 1451.9999389648438,
+        "wires": [
+            [
+                "479489bd11d5db15"
+            ]
+        ]
+    },
+    {
+        "id": "dd029646b0f74e3d",
+        "type": "change",
+        "z": "75782438c74014dc",
+        "name": "gfrValue7 > payload",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.gfrValue7",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 536.8571166992188,
+        "y": 1235.047607421875,
+        "wires": [
+            [
+                "6a229f868a1f9a59"
+            ]
+        ]
+    },
+    {
+        "id": "1aeac951c51aadcd",
+        "type": "comment",
+        "z": "75782438c74014dc",
+        "name": "What Does this do? ",
+        "info": "We receive the COM28 and send it to all the different svg circles\n\ngrf8 --> #circle13543\ngrf7 --> #circle13545\ngrf6 --> #circle13547\ngrf5 --> #circle13549\ngrf4 --> #circle13551\ngrf3 --> #circle13553\ngrf2 --> #circle13555\ngrf1 --> #circle13557",
+        "x": 152.5,
+        "y": 476,
+        "wires": []
+    },
+    {
+        "id": "dead0665011d09b1",
+        "type": "link in",
+        "z": "75782438c74014dc",
+        "name": "grf8",
+        "links": [
+            "639a7ff841dfcbd3"
+        ],
+        "x": 385,
+        "y": 742,
+        "wires": [
+            [
+                "156b829ea5c2ea92",
+                "4486b3224f468c15"
+            ]
+        ]
+    },
+    {
+        "id": "639a7ff841dfcbd3",
+        "type": "link out",
+        "z": "75782438c74014dc",
+        "name": "Json in Serial",
+        "mode": "link",
+        "links": [
+            "dead0665011d09b1",
+            "2b98b813df161ea8",
+            "b1d72ec5aa2b8b39",
+            "1dfb7701e7586686",
+            "93c72a03c066edf8",
+            "49b8e3004ca9453f",
+            "017f4541358c8de0",
+            "82928a86b1f33b47"
+        ],
+        "x": 342,
+        "y": 538,
+        "wires": []
+    },
+    {
+        "id": "2b98b813df161ea8",
+        "type": "link in",
+        "z": "75782438c74014dc",
+        "name": "grf7",
+        "links": [
+            "639a7ff841dfcbd3"
+        ],
+        "x": 402,
+        "y": 1235,
+        "wires": [
+            [
+                "dd029646b0f74e3d",
+                "9ddcf6eaa400c686"
+            ]
+        ]
+    },
+    {
+        "id": "276739a932fbd730",
+        "type": "link out",
+        "z": "75782438c74014dc",
+        "name": "toSVG",
+        "mode": "link",
+        "links": [
+            "57e23afdab309308"
+        ],
+        "x": 1380,
+        "y": 763,
+        "wires": []
+    },
+    {
+        "id": "4aca2208d2191fdb",
+        "type": "link out",
+        "z": "75782438c74014dc",
+        "name": "toSVG",
+        "mode": "link",
+        "links": [
+            "57e23afdab309308"
+        ],
+        "x": 1386,
+        "y": 1256,
+        "wires": []
+    },
+    {
+        "id": "2f59adc8d6700d0b",
+        "type": "ui_svg_graphics",
+        "z": "75782438c74014dc",
+        "group": "bdedd999ace51f8e",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "svgString": "<svg svg x=\"0\" y=\"0\" height=\"800\" viewBox=\"0 0 800 400\" width=\"2000\" 2000\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:svg=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">\n<!-- Add here your SVG shapes (circles, rectangles, ...) -->\n<!-- Or remove everything, if you want to paste an entire drawing (<svg...>...</svg>).-->\n\n\n  <g\n     inkscape:label=\"sole\"\n     inkscape:groupmode=\"layer\"\n     id=\"layer1\"\n     style=\"display:inline\">\n    <path\n       style=\"fill:#0c0d0e;stroke:none;stroke-width:0.0504726\"\n       d=\"m 190.22034,30.969275 c -1.40668,-0.583807 -2.71406,-1.438577 -4.12556,-2.040308 -4.16489,-1.775369 -8.63521,-2.839018 -13.15766,-3.052247 -7.95545,-0.375281 -15.60455,2.113607 -23.31639,3.641136 -7.26381,1.438948 -14.75386,1.815142 -22.14339,1.609437 C 118.3084,30.872274 109.19537,29.472602 100.24266,27.523706 92.237979,25.781093 84.289771,23.713527 76.21598,22.30058 64.803301,20.303228 53.004716,19.421372 41.506743,21.245956 34.544772,22.351088 27.70327,24.71994 21.721231,28.484277 c -1.270759,0.799695 -2.539837,1.602681 -3.745467,2.500011 -0.481497,0.358432 -1.126397,0.705868 -1.512284,1.166709 -1.103422,1.317674 -1.807149,3.189574 -2.438989,4.769601 -0.494176,1.235821 -0.794092,2.533083 -1.017979,3.841605 -1.811739,10.592659 7.091301,19.192958 15.062221,24.553782 1.511814,1.016803 3.0646,2.047932 4.666027,2.921223 10.685659,5.82493 22.33553,10.181297 34.344077,12.387287 10.387677,1.90835 20.897136,2.2097 31.433586,2.18568 12.255457,-0.0276 24.505097,-0.67801 36.737867,-1.34869 l 22.57435,-1.24547 c 8.26633,-0.45288 16.5491,-1.09373 24.61405,-3.062256 6.82154,-1.665218 14.09776,-4.825606 18.1485,-10.850426 4.61132,-6.858455 4.67831,-16.361374 1.14626,-23.679486 -1.5144,-3.137925 -3.73976,-5.863094 -6.39289,-8.106783 -1.23825,-1.047172 -2.55013,-2.030397 -3.95455,-2.841242 -0.38597,-0.222834 -0.7571,-0.536989 -1.16567,-0.706547 m -1.54664,-0.551367 c 1.40581,0.604534 2.7611,1.568108 4.02406,2.418012 2.60108,1.750391 4.9726,3.943788 6.79118,6.508434 3.97891,5.611384 5.38597,12.942745 3.8719,19.64339 -0.54564,2.412813 -1.45296,4.863555 -2.84078,6.92715 -4.2258,6.284624 -11.52198,9.355392 -18.6379,11.092395 -8.274,2.019706 -16.81401,2.556966 -25.28999,3.021686 l -21.84793,1.19863 c -11.19893,0.61424 -22.40108,1.16541 -33.61819,1.29533 -9.350292,0.10855 -18.761664,0.0443 -28.044869,-1.19083 -8.483912,-1.1286 -16.793212,-3.32782 -24.819916,-6.271892 -4.57743,-1.67882 -9.131328,-3.618555 -13.408112,-5.949632 -1.515891,-0.826826 -3.111352,-1.664621 -4.543876,-2.628077 -7.09869,-4.773317 -14.535875,-10.369753 -16.763266,-19.114505 -0.305062,-1.197213 -0.432899,-2.422643 -0.474009,-3.653951 -0.05243,-1.564228 0.177709,-3.119748 0.554305,-4.633839 0.448227,-1.802019 1.180184,-3.587679 2.107619,-5.194042 0.307377,-0.532394 0.577596,-1.191154 1.015337,-1.628465 0.738714,-0.737954 1.725879,-1.292831 2.574043,-1.894155 2.703893,-1.917099 5.651649,-3.553532 8.681313,-4.895569 4.32692,-1.916611 8.920679,-3.219335 13.589653,-3.969842 12.607279,-2.02687 25.499757,-0.69413 37.953518,1.693958 8.759041,1.679678 17.365054,4.093803 26.13778,5.705365 8.2168,1.509461 16.4586,2.423484 24.81547,2.544614 6.86856,0.09962 13.86684,-0.517021 20.58807,-1.943905 7.25914,-1.540896 14.48698,-3.718051 21.99086,-3.364132 3.78485,0.178502 7.52483,1.012128 11.0771,2.315224 1.55155,0.56912 3.00532,1.318714 4.51663,1.968648\"\n       id=\"path980\"\n       sodipodi:nodetypes=\"cccccccccccsccccccccccssccscccscccccccccssccccccccscc\" />\n  </g>\n  <g\n     inkscape:groupmode=\"layer\"\n     id=\"layer2\"\n     inkscape:label=\"points\"\n     style=\"display:inline\">\n    <circle\n       style=\"fill:none;stroke:#000000;stroke-width:0.381525;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;stop-color:#000000\"\n       id=\"path1168\"\n       cx=\"29.362072\"\n       cy=\"43.384052\"\n       r=\"8.3297596\" />\n    <circle\n       style=\"fill:none;stroke:#000000;stroke-width:0.381525;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;stop-color:#000000\"\n       id=\"circle1294\"\n       cx=\"52.16975\"\n       cy=\"33.170181\"\n       r=\"8.3297596\" />\n    <circle\n       style=\"fill:none;stroke:#000000;stroke-width:0.381525;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;stop-color:#000000\"\n       id=\"circle1296\"\n       cx=\"56.830452\"\n       cy=\"52.308788\"\n       r=\"8.3297596\" />\n    <circle\n       style=\"fill:none;stroke:#000000;stroke-width:0.381525;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;stop-color:#000000\"\n       id=\"circle1298\"\n       cx=\"73.688293\"\n       cy=\"70.455765\"\n       r=\"8.3297596\" />\n    <circle\n       style=\"fill:none;stroke:#000000;stroke-width:0.381525;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;stop-color:#000000\"\n       id=\"circle1300\"\n       cx=\"98.975067\"\n       cy=\"73.083611\"\n       r=\"8.3297596\" />\n    <circle\n       style=\"fill:none;stroke:#000000;stroke-width:0.381525;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;stop-color:#000000\"\n       id=\"circle1302\"\n       cx=\"163.32742\"\n       cy=\"41.857029\"\n       r=\"8.3297596\" />\n    <circle\n       style=\"fill:none;stroke:#000000;stroke-width:0.381525;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;stop-color:#000000\"\n       id=\"circle1304\"\n       cx=\"170.76471\"\n       cy=\"63.970554\"\n       r=\"8.3297596\" />\n    <circle\n       style=\"fill:none;stroke:#000000;stroke-width:0.381525;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;stop-color:#000000\"\n       id=\"circle1306\"\n       cx=\"183.90393\"\n       cy=\"51.277584\"\n       r=\"8.3297596\" />\n  </g>\n  <g\n     inkscape:groupmode=\"layer\"\n     id=\"g13559\"\n     inkscape:label=\"points-fill\">\n    <circle\n       style=\"fill:#ff0000;fill-opacity:1;stroke:none;stroke-width:0.381525;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;stop-color:#000000\"\n       id=\"circle13543\"\n       cx=\"29.362072\"\n       cy=\"43.384052\"\n       r=\"8.3297596\" />\n    <circle\n       style=\"fill:#ff0000;fill-opacity:1;stroke:none;stroke-width:0.381525;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;stop-color:#000000\"\n       id=\"circle13545\"\n       cx=\"52.16975\"\n       cy=\"33.170181\"\n       r=\"8.3297596\" />\n    <circle\n       style=\"fill:#ff0000;fill-opacity:1;stroke:none;stroke-width:0.381525;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;stop-color:#000000\"\n       id=\"circle13547\"\n       cx=\"56.830452\"\n       cy=\"52.308788\"\n       r=\"8.3297596\" />\n    <circle\n       style=\"fill:#ff0000;fill-opacity:1;stroke:none;stroke-width:0.381525;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;stop-color:#000000\"\n       id=\"circle13549\"\n       cx=\"73.688293\"\n       cy=\"70.455765\"\n       r=\"8.3297596\" />\n    <circle\n       style=\"fill:#ff0000;fill-opacity:1;stroke:none;stroke-width:0.381525;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;stop-color:#000000\"\n       id=\"circle13551\"\n       cx=\"98.975067\"\n       cy=\"73.083611\"\n       r=\"8.3297596\" />\n    <circle\n       style=\"fill:#ff0000;fill-opacity:1;stroke:none;stroke-width:0.381525;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;stop-color:#000000\"\n       id=\"circle13553\"\n       cx=\"163.32742\"\n       cy=\"41.857029\"\n       r=\"8.3297596\" />\n    <circle\n       style=\"fill:#ff0000;fill-opacity:1;stroke:none;stroke-width:0.381525;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;stop-color:#000000\"\n       id=\"circle13555\"\n       cx=\"170.76471\"\n       cy=\"63.970554\"\n       r=\"8.3297596\" />\n    <circle\n       style=\"fill:#ff0000;fill-opacity:1;stroke:none;stroke-width:0.381525;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;stop-color:#000000\"\n       id=\"circle13557\"\n       cx=\"183.90393\"\n       cy=\"51.277584\"\n       r=\"8.3297596\" />\n  </g>\n  <g\n     inkscape:groupmode=\"layer\"\n     id=\"layer3\"\n     inkscape:label=\"num\"\n     style=\"display:inline\">\n    <text\n       xml:space=\"preserve\"\n       style=\"font-style:normal;font-weight:normal;font-size:6.72968px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.0504726\"\n       x=\"182.88426\"\n       y=\"53.691425\"\n       id=\"text1597\"><tspan\n         sodipodi:role=\"line\"\n         id=\"tspan1595\"\n         style=\"font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.72968px;font-family:'Roboto Slab';-inkscape-font-specification:'Roboto Slab';stroke-width:0.0504726\"\n         x=\"182.88426\"\n         y=\"53.691425\">1</tspan></text>\n    <text\n       xml:space=\"preserve\"\n       style=\"font-style:normal;font-weight:normal;font-size:6.72968px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.0504726\"\n       x=\"169.14087\"\n       y=\"66.383041\"\n       id=\"text2949\"><tspan\n         sodipodi:role=\"line\"\n         id=\"tspan2947\"\n         style=\"font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.72968px;font-family:'Roboto Slab';-inkscape-font-specification:'Roboto Slab';stroke-width:0.0504726\"\n         x=\"169.14087\"\n         y=\"66.383041\">2</tspan></text>\n    <text\n       xml:space=\"preserve\"\n       style=\"font-style:normal;font-weight:normal;font-size:6.72968px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.0504726\"\n       x=\"161.42773\"\n       y=\"44.19025\"\n       id=\"text6967\"><tspan\n         sodipodi:role=\"line\"\n         id=\"tspan6965\"\n         style=\"font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.72968px;font-family:'Roboto Slab';-inkscape-font-specification:'Roboto Slab';stroke-width:0.0504726\"\n         x=\"161.42773\"\n         y=\"44.19025\">3</tspan></text>\n    <text\n       xml:space=\"preserve\"\n       style=\"font-style:normal;font-weight:normal;font-size:6.72968px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.0504726\"\n       x=\"96.971275\"\n       y=\"75.426849\"\n       id=\"text9379\"><tspan\n         sodipodi:role=\"line\"\n         id=\"tspan9377\"\n         style=\"font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.72968px;font-family:'Roboto Slab';-inkscape-font-specification:'Roboto Slab';stroke-width:0.0504726\"\n         x=\"96.971275\"\n         y=\"75.426849\">4</tspan></text>\n    <text\n       xml:space=\"preserve\"\n       style=\"font-style:normal;font-weight:normal;font-size:6.72968px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.0504726\"\n       x=\"71.783661\"\n       y=\"72.650269\"\n       id=\"text10493\"><tspan\n         sodipodi:role=\"line\"\n         id=\"tspan10491\"\n         style=\"font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.72968px;font-family:'Roboto Slab';-inkscape-font-specification:'Roboto Slab';stroke-width:0.0504726\"\n         x=\"71.783661\"\n         y=\"72.650269\">5</tspan></text>\n    <text\n       xml:space=\"preserve\"\n       style=\"font-style:normal;font-weight:normal;font-size:6.72968px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.0504726\"\n       x=\"54.727486\"\n       y=\"54.602451\"\n       id=\"text11115\"><tspan\n         sodipodi:role=\"line\"\n         id=\"tspan11113\"\n         style=\"font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.72968px;font-family:'Roboto Slab';-inkscape-font-specification:'Roboto Slab';stroke-width:0.0504726\"\n         x=\"54.727486\"\n         y=\"54.602451\">6</tspan></text>\n    <text\n       xml:space=\"preserve\"\n       style=\"font-style:normal;font-weight:normal;font-size:6.72968px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.0504726\"\n       x=\"50.165955\"\n       y=\"35.364681\"\n       id=\"text12757\"><tspan\n         sodipodi:role=\"line\"\n         id=\"tspan12755\"\n         style=\"font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.72968px;font-family:'Roboto Slab';-inkscape-font-specification:'Roboto Slab';stroke-width:0.0504726\"\n         x=\"50.165955\"\n         y=\"35.364681\">7</tspan></text>\n    <text\n       xml:space=\"preserve\"\n       style=\"font-style:normal;font-weight:normal;font-size:6.72968px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.0504726\"\n       x=\"27.556604\"\n       y=\"45.38023\"\n       id=\"text13331\"><tspan\n         sodipodi:role=\"line\"\n         id=\"tspan13329\"\n         style=\"font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.72968px;font-family:'Roboto Slab';-inkscape-font-specification:'Roboto Slab';stroke-width:0.0504726\"\n         x=\"27.556604\"\n         y=\"45.38023\">8</tspan></text>\n  </g>\n</svg>",
+        "clickableShapes": [],
+        "javascriptHandlers": [],
+        "smilAnimations": [],
+        "bindings": [],
+        "showCoordinates": false,
+        "autoFormatAfterEdit": false,
+        "showBrowserErrors": false,
+        "showBrowserEvents": false,
+        "enableJsDebugging": false,
+        "sendMsgWhenLoaded": false,
+        "noClickWhenDblClick": false,
+        "outputField": "payload",
+        "editorUrl": "//drawsvg.org/drawsvg.html",
+        "directory": "",
+        "panning": "disabled",
+        "zooming": "disabled",
+        "panOnlyWhenZoomed": false,
+        "doubleClickZoomEnabled": false,
+        "mouseWheelZoomEnabled": false,
+        "dblClickZoomPercentage": 150,
+        "cssString": "div.ui-svg svg{\n    color: var(--nr-dashboard-widgetColor);\n    fill: currentColor !important;\n}\ndiv.ui-svg path {\n    fill: inherit;\n}",
+        "name": "",
+        "x": 1658.9913330078125,
+        "y": 657.6425170898438,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "57e23afdab309308",
+        "type": "link in",
+        "z": "75782438c74014dc",
+        "name": "svg",
+        "links": [
+            "276739a932fbd730",
+            "4aca2208d2191fdb",
+            "30f0393138bed8fa",
+            "33b94094a6a68750",
+            "6deb4a8665864bab",
+            "0952326965fa40ed",
+            "a371cc91a8cee545",
+            "5d24bc85af31d3eb"
+        ],
+        "x": 1526,
+        "y": 657,
+        "wires": [
+            [
+                "2f59adc8d6700d0b"
+            ]
+        ]
+    },
+    {
+        "id": "9e2bcb59d7597413",
+        "type": "inject",
+        "z": "75782438c74014dc",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "rgb(0, 191, 255)",
+        "payload": "{\"command\":\"update_style\",\"selector\":\"#circle13543\",\"attributeName\":\"fill\",\"attributeValue\":\"rgb(0, 191, 255)\"}",
+        "payloadType": "json",
+        "x": 1079,
+        "y": 1552,
+        "wires": [
+            [
+                "97170cabf10cef00"
+            ]
+        ]
+    },
+    {
+        "id": "97170cabf10cef00",
+        "type": "template",
+        "z": "75782438c74014dc",
+        "name": "color grf 6",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "json",
+        "syntax": "mustache",
+        "template": "{    \n \"command\": \"update_style\",\n \"selector\": \"#circle13547\",\n \"attributeName\": \"fill\",\n \"attributeValue\": \"{{payload}}\"\n}\n",
+        "output": "json",
+        "x": 1291.3334350585938,
+        "y": 1748.3809204101562,
+        "wires": [
+            [
+                "30f0393138bed8fa"
+            ]
+        ]
+    },
+    {
+        "id": "7d05d2234ea341de",
+        "type": "debug",
+        "z": "75782438c74014dc",
+        "name": "debug 70",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 764.0476684570312,
+        "y": 1676.6666259765625,
+        "wires": []
+    },
+    {
+        "id": "e672d44d82264b45",
+        "type": "range",
+        "z": "75782438c74014dc",
+        "minin": "0",
+        "maxin": "4096",
+        "minout": "11",
+        "maxout": "1",
+        "action": "roll",
+        "round": true,
+        "property": "payload",
+        "name": "",
+        "x": 751.1904296875,
+        "y": 1726.047607421875,
+        "wires": [
+            [
+                "7d05d2234ea341de",
+                "b8fed77bfc55f143"
+            ]
+        ]
+    },
+    {
+        "id": "b8fed77bfc55f143",
+        "type": "switch",
+        "z": "75782438c74014dc",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "2",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "3",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "4",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "5",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "6",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "7",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "8",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "9",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "10",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "11",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 11,
+        "x": 906.71435546875,
+        "y": 1746.3333129882812,
+        "wires": [
+            [
+                "ddaf3dfeece53274"
+            ],
+            [
+                "9e120691de212471"
+            ],
+            [
+                "e8e0472d7b704273"
+            ],
+            [
+                "296c964f9312180c"
+            ],
+            [
+                "996347112929a03a"
+            ],
+            [
+                "44628fe0f6267118"
+            ],
+            [
+                "d9eb9da5609feb59"
+            ],
+            [
+                "673dcd72b33b1acb"
+            ],
+            [
+                "76d7e10b1203aae2"
+            ],
+            [
+                "dabfa98b95483b12"
+            ],
+            [
+                "db11f81e593c7a93"
+            ]
+        ]
+    },
+    {
+        "id": "ddaf3dfeece53274",
+        "type": "change",
+        "z": "75782438c74014dc",
+        "name": "color 1",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "rgb(  0,   0, 255)",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1082.7142944335938,
+        "y": 1601,
+        "wires": [
+            [
+                "97170cabf10cef00"
+            ]
+        ]
+    },
+    {
+        "id": "9e120691de212471",
+        "type": "change",
+        "z": "75782438c74014dc",
+        "name": "color 2",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "rgb(  0,  50, 204)",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1083.3808975219727,
+        "y": 1635,
+        "wires": [
+            [
+                "97170cabf10cef00"
+            ]
+        ]
+    },
+    {
+        "id": "e8e0472d7b704273",
+        "type": "change",
+        "z": "75782438c74014dc",
+        "name": "color 3",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "rgb(  0, 101, 153)",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1083.3809776306152,
+        "y": 1669.6666259765625,
+        "wires": [
+            [
+                "97170cabf10cef00"
+            ]
+        ]
+    },
+    {
+        "id": "296c964f9312180c",
+        "type": "change",
+        "z": "75782438c74014dc",
+        "name": "color 4",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "rgb(  0, 153, 101)",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1084.0475845336914,
+        "y": 1703.6666259765625,
+        "wires": [
+            [
+                "97170cabf10cef00"
+            ]
+        ]
+    },
+    {
+        "id": "996347112929a03a",
+        "type": "change",
+        "z": "75782438c74014dc",
+        "name": "color 5",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "rgb(  0, 204,  50)",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1084.7141876220703,
+        "y": 1737.6666259765625,
+        "wires": [
+            [
+                "97170cabf10cef00"
+            ]
+        ]
+    },
+    {
+        "id": "44628fe0f6267118",
+        "type": "change",
+        "z": "75782438c74014dc",
+        "name": "color 6 ",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "rgb(  0, 255,   0)",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1084.714267730713,
+        "y": 1772.333251953125,
+        "wires": [
+            [
+                "97170cabf10cef00"
+            ]
+        ]
+    },
+    {
+        "id": "d9eb9da5609feb59",
+        "type": "change",
+        "z": "75782438c74014dc",
+        "name": "color 7 ",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "rgb( 51, 203,   0)",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1087.380958557129,
+        "y": 1805.6666259765625,
+        "wires": [
+            [
+                "97170cabf10cef00"
+            ]
+        ]
+    },
+    {
+        "id": "673dcd72b33b1acb",
+        "type": "change",
+        "z": "75782438c74014dc",
+        "name": "color 8",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "rgb(102, 152,   0)",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1088.0475616455078,
+        "y": 1839.6666259765625,
+        "wires": [
+            [
+                "97170cabf10cef00"
+            ]
+        ]
+    },
+    {
+        "id": "76d7e10b1203aae2",
+        "type": "change",
+        "z": "75782438c74014dc",
+        "name": "color 9",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "rgb(153, 101,   0)",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1088.0476417541504,
+        "y": 1874.333251953125,
+        "wires": [
+            [
+                "97170cabf10cef00"
+            ]
+        ]
+    },
+    {
+        "id": "dabfa98b95483b12",
+        "type": "change",
+        "z": "75782438c74014dc",
+        "name": "color 10",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "rgb(203,  51,   0)",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1101.380958557129,
+        "y": 1908.3333129882812,
+        "wires": [
+            [
+                "97170cabf10cef00"
+            ]
+        ]
+    },
+    {
+        "id": "db11f81e593c7a93",
+        "type": "change",
+        "z": "75782438c74014dc",
+        "name": "color 11",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "rgb(255,   0,   0)",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1101.3810386657715,
+        "y": 1942.9999389648438,
+        "wires": [
+            [
+                "97170cabf10cef00"
+            ]
+        ]
+    },
+    {
+        "id": "81bb42c5d8768949",
+        "type": "change",
+        "z": "75782438c74014dc",
+        "name": "gfrValue6 > payload",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.gfrValue6",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 537.8571166992188,
+        "y": 1726.047607421875,
+        "wires": [
+            [
+                "e672d44d82264b45"
+            ]
+        ]
+    },
+    {
+        "id": "b1d72ec5aa2b8b39",
+        "type": "link in",
+        "z": "75782438c74014dc",
+        "name": "grf7",
+        "links": [
+            "639a7ff841dfcbd3"
+        ],
+        "x": 403,
+        "y": 1726,
+        "wires": [
+            [
+                "81bb42c5d8768949",
+                "1b26b1b33fae43af"
+            ]
+        ]
+    },
+    {
+        "id": "30f0393138bed8fa",
+        "type": "link out",
+        "z": "75782438c74014dc",
+        "name": "toSVG",
+        "mode": "link",
+        "links": [
+            "57e23afdab309308"
+        ],
+        "x": 1387,
+        "y": 1747,
+        "wires": []
+    },
+    {
+        "id": "374e22e3d90c1592",
+        "type": "inject",
+        "z": "75782438c74014dc",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "rgb(0, 191, 255)",
+        "payload": "{\"command\":\"update_style\",\"selector\":\"#circle13543\",\"attributeName\":\"fill\",\"attributeValue\":\"rgb(0, 191, 255)\"}",
+        "payloadType": "json",
+        "x": 1099,
+        "y": 2027,
+        "wires": [
+            [
+                "482cfbb75d76a469"
+            ]
+        ]
+    },
+    {
+        "id": "482cfbb75d76a469",
+        "type": "template",
+        "z": "75782438c74014dc",
+        "name": "color grf 5",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "json",
+        "syntax": "mustache",
+        "template": "{    \n \"command\": \"update_style\",\n \"selector\": \"#circle13549\",\n \"attributeName\": \"fill\",\n \"attributeValue\": \"{{payload}}\"\n}\n",
+        "output": "json",
+        "x": 1311.3334350585938,
+        "y": 2223.3809204101562,
+        "wires": [
+            [
+                "33b94094a6a68750"
+            ]
+        ]
+    },
+    {
+        "id": "a4f1dad941d192c6",
+        "type": "debug",
+        "z": "75782438c74014dc",
+        "name": "debug 71",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 784.0476684570312,
+        "y": 2151.6666259765625,
+        "wires": []
+    },
+    {
+        "id": "61dbf351e2b54e2d",
+        "type": "range",
+        "z": "75782438c74014dc",
+        "minin": "0",
+        "maxin": "4096",
+        "minout": "11",
+        "maxout": "1",
+        "action": "roll",
+        "round": true,
+        "property": "payload",
+        "name": "",
+        "x": 771.1904296875,
+        "y": 2201.047607421875,
+        "wires": [
+            [
+                "a4f1dad941d192c6",
+                "3e7932119490afe7"
+            ]
+        ]
+    },
+    {
+        "id": "3e7932119490afe7",
+        "type": "switch",
+        "z": "75782438c74014dc",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "2",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "3",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "4",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "5",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "6",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "7",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "8",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "9",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "10",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "11",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 11,
+        "x": 926.71435546875,
+        "y": 2221.3333129882812,
+        "wires": [
+            [
+                "f56ce7a6b0005cb6"
+            ],
+            [
+                "fbe35e5f2cabec66"
+            ],
+            [
+                "5a8a2d9a17e22684"
+            ],
+            [
+                "9d91a49ce52c9724"
+            ],
+            [
+                "086fdcf86b81ae4e"
+            ],
+            [
+                "6c792b85fa88b3d9"
+            ],
+            [
+                "6afe2e466faa5e9c"
+            ],
+            [
+                "d7dbc4b9ac550df5"
+            ],
+            [
+                "a4f2277bcca31737"
+            ],
+            [
+                "9b18f5b84ec0b517"
+            ],
+            [
+                "65ac72a10e6b4010"
+            ]
+        ]
+    },
+    {
+        "id": "f56ce7a6b0005cb6",
+        "type": "change",
+        "z": "75782438c74014dc",
+        "name": "color 1",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "rgb(  0,   0, 255)",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1102.7142944335938,
+        "y": 2076,
+        "wires": [
+            [
+                "482cfbb75d76a469"
+            ]
+        ]
+    },
+    {
+        "id": "fbe35e5f2cabec66",
+        "type": "change",
+        "z": "75782438c74014dc",
+        "name": "color 2",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "rgb(  0,  50, 204)",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1103.3808975219727,
+        "y": 2110,
+        "wires": [
+            [
+                "482cfbb75d76a469"
+            ]
+        ]
+    },
+    {
+        "id": "5a8a2d9a17e22684",
+        "type": "change",
+        "z": "75782438c74014dc",
+        "name": "color 3",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "rgb(  0, 101, 153)",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1103.3809776306152,
+        "y": 2144.6666259765625,
+        "wires": [
+            [
+                "482cfbb75d76a469"
+            ]
+        ]
+    },
+    {
+        "id": "9d91a49ce52c9724",
+        "type": "change",
+        "z": "75782438c74014dc",
+        "name": "color 4",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "rgb(  0, 153, 101)",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1104.0475845336914,
+        "y": 2178.6666259765625,
+        "wires": [
+            [
+                "482cfbb75d76a469"
+            ]
+        ]
+    },
+    {
+        "id": "086fdcf86b81ae4e",
+        "type": "change",
+        "z": "75782438c74014dc",
+        "name": "color 5",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "rgb(  0, 204,  50)",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1104.7141876220703,
+        "y": 2212.6666259765625,
+        "wires": [
+            [
+                "482cfbb75d76a469"
+            ]
+        ]
+    },
+    {
+        "id": "6c792b85fa88b3d9",
+        "type": "change",
+        "z": "75782438c74014dc",
+        "name": "color 6 ",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "rgb(  0, 255,   0)",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1104.714267730713,
+        "y": 2247.333251953125,
+        "wires": [
+            [
+                "482cfbb75d76a469"
+            ]
+        ]
+    },
+    {
+        "id": "6afe2e466faa5e9c",
+        "type": "change",
+        "z": "75782438c74014dc",
+        "name": "color 7 ",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "rgb( 51, 203,   0)",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1107.380958557129,
+        "y": 2280.6666259765625,
+        "wires": [
+            [
+                "482cfbb75d76a469"
+            ]
+        ]
+    },
+    {
+        "id": "d7dbc4b9ac550df5",
+        "type": "change",
+        "z": "75782438c74014dc",
+        "name": "color 8",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "rgb(102, 152,   0)",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1108.0475616455078,
+        "y": 2314.6666259765625,
+        "wires": [
+            [
+                "482cfbb75d76a469"
+            ]
+        ]
+    },
+    {
+        "id": "a4f2277bcca31737",
+        "type": "change",
+        "z": "75782438c74014dc",
+        "name": "color 9",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "rgb(153, 101,   0)",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1108.0476417541504,
+        "y": 2349.333251953125,
+        "wires": [
+            [
+                "482cfbb75d76a469"
+            ]
+        ]
+    },
+    {
+        "id": "9b18f5b84ec0b517",
+        "type": "change",
+        "z": "75782438c74014dc",
+        "name": "color 10",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "rgb(203,  51,   0)",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1121.380958557129,
+        "y": 2383.3333129882812,
+        "wires": [
+            [
+                "482cfbb75d76a469"
+            ]
+        ]
+    },
+    {
+        "id": "65ac72a10e6b4010",
+        "type": "change",
+        "z": "75782438c74014dc",
+        "name": "color 11",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "rgb(255,   0,   0)",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1121.3810386657715,
+        "y": 2417.9999389648438,
+        "wires": [
+            [
+                "482cfbb75d76a469"
+            ]
+        ]
+    },
+    {
+        "id": "e2dfc769cce99a17",
+        "type": "change",
+        "z": "75782438c74014dc",
+        "name": "gfrValue5 > payload",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.gfrValue5",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 557.8571166992188,
+        "y": 2201.047607421875,
+        "wires": [
+            [
+                "61dbf351e2b54e2d"
+            ]
+        ]
+    },
+    {
+        "id": "1dfb7701e7586686",
+        "type": "link in",
+        "z": "75782438c74014dc",
+        "name": "grf7",
+        "links": [
+            "639a7ff841dfcbd3"
+        ],
+        "x": 423,
+        "y": 2201,
+        "wires": [
+            [
+                "e2dfc769cce99a17",
+                "a86b91fcaa3ad0bb"
+            ]
+        ]
+    },
+    {
+        "id": "33b94094a6a68750",
+        "type": "link out",
+        "z": "75782438c74014dc",
+        "name": "toSVG",
+        "mode": "link",
+        "links": [
+            "57e23afdab309308"
+        ],
+        "x": 1407,
+        "y": 2222,
+        "wires": []
+    },
+    {
+        "id": "15c3d642867e2933",
+        "type": "inject",
+        "z": "75782438c74014dc",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "rgb(0, 191, 255)",
+        "payload": "{\"command\":\"update_style\",\"selector\":\"#circle13543\",\"attributeName\":\"fill\",\"attributeValue\":\"rgb(0, 191, 255)\"}",
+        "payloadType": "json",
+        "x": 1115,
+        "y": 2499,
+        "wires": [
+            [
+                "e98fe2bc7e9c8e07"
+            ]
+        ]
+    },
+    {
+        "id": "e98fe2bc7e9c8e07",
+        "type": "template",
+        "z": "75782438c74014dc",
+        "name": "color grf 4",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "json",
+        "syntax": "mustache",
+        "template": "{    \n \"command\": \"update_style\",\n \"selector\": \"#circle13551\",\n \"attributeName\": \"fill\",\n \"attributeValue\": \"{{payload}}\"\n}\n",
+        "output": "json",
+        "x": 1327.3334350585938,
+        "y": 2695.3809204101562,
+        "wires": [
+            [
+                "6deb4a8665864bab"
+            ]
+        ]
+    },
+    {
+        "id": "d3cadc4b3779a6ef",
+        "type": "debug",
+        "z": "75782438c74014dc",
+        "name": "debug 72",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 800.0476684570312,
+        "y": 2623.6666259765625,
+        "wires": []
+    },
+    {
+        "id": "95ba164e9bb4e2e0",
+        "type": "range",
+        "z": "75782438c74014dc",
+        "minin": "0",
+        "maxin": "4096",
+        "minout": "11",
+        "maxout": "1",
+        "action": "roll",
+        "round": true,
+        "property": "payload",
+        "name": "",
+        "x": 787.1904296875,
+        "y": 2673.047607421875,
+        "wires": [
+            [
+                "d3cadc4b3779a6ef",
+                "d38afd1439c59c29"
+            ]
+        ]
+    },
+    {
+        "id": "d38afd1439c59c29",
+        "type": "switch",
+        "z": "75782438c74014dc",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "2",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "3",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "4",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "5",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "6",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "7",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "8",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "9",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "10",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "11",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 11,
+        "x": 942.71435546875,
+        "y": 2693.3333129882812,
+        "wires": [
+            [
+                "c08528edce8e7b13"
+            ],
+            [
+                "c7ee42070f142384"
+            ],
+            [
+                "2ff6fd69b624e2a5"
+            ],
+            [
+                "1bb8bde82ec03507"
+            ],
+            [
+                "eac0d6d46431af65"
+            ],
+            [
+                "fe401e3db5adeea4"
+            ],
+            [
+                "9648f65357bab615"
+            ],
+            [
+                "adddd90233cf837a"
+            ],
+            [
+                "ac6de52c9fa2f53c"
+            ],
+            [
+                "03449e93baacf855"
+            ],
+            [
+                "c2cf3cb1752bf396"
+            ]
+        ]
+    },
+    {
+        "id": "c08528edce8e7b13",
+        "type": "change",
+        "z": "75782438c74014dc",
+        "name": "color 1",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "rgb(  0,   0, 255)",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1118.7142944335938,
+        "y": 2548,
+        "wires": [
+            [
+                "e98fe2bc7e9c8e07"
+            ]
+        ]
+    },
+    {
+        "id": "c7ee42070f142384",
+        "type": "change",
+        "z": "75782438c74014dc",
+        "name": "color 2",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "rgb(  0,  50, 204)",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1119.3808975219727,
+        "y": 2582,
+        "wires": [
+            [
+                "e98fe2bc7e9c8e07"
+            ]
+        ]
+    },
+    {
+        "id": "2ff6fd69b624e2a5",
+        "type": "change",
+        "z": "75782438c74014dc",
+        "name": "color 3",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "rgb(  0, 101, 153)",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1119.3809776306152,
+        "y": 2616.6666259765625,
+        "wires": [
+            [
+                "e98fe2bc7e9c8e07"
+            ]
+        ]
+    },
+    {
+        "id": "1bb8bde82ec03507",
+        "type": "change",
+        "z": "75782438c74014dc",
+        "name": "color 4",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "rgb(  0, 153, 101)",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1120.0475845336914,
+        "y": 2650.6666259765625,
+        "wires": [
+            [
+                "e98fe2bc7e9c8e07"
+            ]
+        ]
+    },
+    {
+        "id": "eac0d6d46431af65",
+        "type": "change",
+        "z": "75782438c74014dc",
+        "name": "color 5",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "rgb(  0, 204,  50)",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1120.7141876220703,
+        "y": 2684.6666259765625,
+        "wires": [
+            [
+                "e98fe2bc7e9c8e07"
+            ]
+        ]
+    },
+    {
+        "id": "fe401e3db5adeea4",
+        "type": "change",
+        "z": "75782438c74014dc",
+        "name": "color 6 ",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "rgb(  0, 255,   0)",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1120.714267730713,
+        "y": 2719.333251953125,
+        "wires": [
+            [
+                "e98fe2bc7e9c8e07"
+            ]
+        ]
+    },
+    {
+        "id": "9648f65357bab615",
+        "type": "change",
+        "z": "75782438c74014dc",
+        "name": "color 7 ",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "rgb( 51, 203,   0)",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1123.380958557129,
+        "y": 2752.6666259765625,
+        "wires": [
+            [
+                "e98fe2bc7e9c8e07"
+            ]
+        ]
+    },
+    {
+        "id": "adddd90233cf837a",
+        "type": "change",
+        "z": "75782438c74014dc",
+        "name": "color 8",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "rgb(102, 152,   0)",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1124.0475616455078,
+        "y": 2786.6666259765625,
+        "wires": [
+            [
+                "e98fe2bc7e9c8e07"
+            ]
+        ]
+    },
+    {
+        "id": "ac6de52c9fa2f53c",
+        "type": "change",
+        "z": "75782438c74014dc",
+        "name": "color 9",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "rgb(153, 101,   0)",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1124.0476417541504,
+        "y": 2821.333251953125,
+        "wires": [
+            [
+                "e98fe2bc7e9c8e07"
+            ]
+        ]
+    },
+    {
+        "id": "03449e93baacf855",
+        "type": "change",
+        "z": "75782438c74014dc",
+        "name": "color 10",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "rgb(203,  51,   0)",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1137.380958557129,
+        "y": 2855.3333129882812,
+        "wires": [
+            [
+                "e98fe2bc7e9c8e07"
+            ]
+        ]
+    },
+    {
+        "id": "c2cf3cb1752bf396",
+        "type": "change",
+        "z": "75782438c74014dc",
+        "name": "color 11",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "rgb(255,   0,   0)",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1137.3810386657715,
+        "y": 2889.9999389648438,
+        "wires": [
+            [
+                "e98fe2bc7e9c8e07"
+            ]
+        ]
+    },
+    {
+        "id": "510a0734e4dec9d8",
+        "type": "change",
+        "z": "75782438c74014dc",
+        "name": "gfrValue4 > payload",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.gfrValue4",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 573.8571166992188,
+        "y": 2673.047607421875,
+        "wires": [
+            [
+                "95ba164e9bb4e2e0"
+            ]
+        ]
+    },
+    {
+        "id": "93c72a03c066edf8",
+        "type": "link in",
+        "z": "75782438c74014dc",
+        "name": "grf7",
+        "links": [
+            "639a7ff841dfcbd3"
+        ],
+        "x": 439,
+        "y": 2673,
+        "wires": [
+            [
+                "510a0734e4dec9d8",
+                "6ea6ca1ba41af4c5"
+            ]
+        ]
+    },
+    {
+        "id": "6deb4a8665864bab",
+        "type": "link out",
+        "z": "75782438c74014dc",
+        "name": "toSVG",
+        "mode": "link",
+        "links": [
+            "57e23afdab309308"
+        ],
+        "x": 1423,
+        "y": 2694,
+        "wires": []
+    },
+    {
+        "id": "edd96fe41ecfd4cb",
+        "type": "inject",
+        "z": "75782438c74014dc",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "rgb(0, 191, 255)",
+        "payload": "{\"command\":\"update_style\",\"selector\":\"#circle13543\",\"attributeName\":\"fill\",\"attributeValue\":\"rgb(0, 191, 255)\"}",
+        "payloadType": "json",
+        "x": 1132,
+        "y": 2969,
+        "wires": [
+            [
+                "aaa9fb8e9cc56f9c"
+            ]
+        ]
+    },
+    {
+        "id": "aaa9fb8e9cc56f9c",
+        "type": "template",
+        "z": "75782438c74014dc",
+        "name": "color grf 3",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "json",
+        "syntax": "mustache",
+        "template": "{    \n \"command\": \"update_style\",\n \"selector\": \"#circle13553\",\n \"attributeName\": \"fill\",\n \"attributeValue\": \"{{payload}}\"\n}\n",
+        "output": "json",
+        "x": 1344.3334350585938,
+        "y": 3165.3809204101562,
+        "wires": [
+            [
+                "0952326965fa40ed"
+            ]
+        ]
+    },
+    {
+        "id": "6929ba91e49af286",
+        "type": "debug",
+        "z": "75782438c74014dc",
+        "name": "debug 73",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 817.0476684570312,
+        "y": 3093.6666259765625,
+        "wires": []
+    },
+    {
+        "id": "e41e73139252a37c",
+        "type": "range",
+        "z": "75782438c74014dc",
+        "minin": "0",
+        "maxin": "4096",
+        "minout": "11",
+        "maxout": "1",
+        "action": "roll",
+        "round": true,
+        "property": "payload",
+        "name": "",
+        "x": 804.1904296875,
+        "y": 3143.047607421875,
+        "wires": [
+            [
+                "6929ba91e49af286",
+                "6e5e31feaac3affe"
+            ]
+        ]
+    },
+    {
+        "id": "6e5e31feaac3affe",
+        "type": "switch",
+        "z": "75782438c74014dc",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "2",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "3",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "4",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "5",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "6",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "7",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "8",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "9",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "10",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "11",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 11,
+        "x": 959.71435546875,
+        "y": 3163.3333129882812,
+        "wires": [
+            [
+                "c38519bd0d58e065"
+            ],
+            [
+                "bc8adedc9cad9f24"
+            ],
+            [
+                "3dbdbc5dd233147c"
+            ],
+            [
+                "6cc495a89f252405"
+            ],
+            [
+                "6a8e17f34805e439"
+            ],
+            [
+                "c5075b60ddf269e7"
+            ],
+            [
+                "c83028c85298b3fd"
+            ],
+            [
+                "e93e2e19c6811e6c"
+            ],
+            [
+                "5bf8a3b97e0262a3"
+            ],
+            [
+                "5a8bfa68a93350b5"
+            ],
+            [
+                "a60b34d2a6d9ee9d"
+            ]
+        ]
+    },
+    {
+        "id": "c38519bd0d58e065",
+        "type": "change",
+        "z": "75782438c74014dc",
+        "name": "color 1",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "rgb(  0,   0, 255)",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1135.7142944335938,
+        "y": 3018,
+        "wires": [
+            [
+                "aaa9fb8e9cc56f9c"
+            ]
+        ]
+    },
+    {
+        "id": "bc8adedc9cad9f24",
+        "type": "change",
+        "z": "75782438c74014dc",
+        "name": "color 2",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "rgb(  0,  50, 204)",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1136.3808975219727,
+        "y": 3052,
+        "wires": [
+            [
+                "aaa9fb8e9cc56f9c"
+            ]
+        ]
+    },
+    {
+        "id": "3dbdbc5dd233147c",
+        "type": "change",
+        "z": "75782438c74014dc",
+        "name": "color 3",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "rgb(  0, 101, 153)",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1136.3809776306152,
+        "y": 3086.6666259765625,
+        "wires": [
+            [
+                "aaa9fb8e9cc56f9c"
+            ]
+        ]
+    },
+    {
+        "id": "6cc495a89f252405",
+        "type": "change",
+        "z": "75782438c74014dc",
+        "name": "color 4",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "rgb(  0, 153, 101)",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1137.0475845336914,
+        "y": 3120.6666259765625,
+        "wires": [
+            [
+                "aaa9fb8e9cc56f9c"
+            ]
+        ]
+    },
+    {
+        "id": "6a8e17f34805e439",
+        "type": "change",
+        "z": "75782438c74014dc",
+        "name": "color 5",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "rgb(  0, 204,  50)",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1137.7141876220703,
+        "y": 3154.6666259765625,
+        "wires": [
+            [
+                "aaa9fb8e9cc56f9c"
+            ]
+        ]
+    },
+    {
+        "id": "c5075b60ddf269e7",
+        "type": "change",
+        "z": "75782438c74014dc",
+        "name": "color 6 ",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "rgb(  0, 255,   0)",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1137.714267730713,
+        "y": 3189.333251953125,
+        "wires": [
+            [
+                "aaa9fb8e9cc56f9c"
+            ]
+        ]
+    },
+    {
+        "id": "c83028c85298b3fd",
+        "type": "change",
+        "z": "75782438c74014dc",
+        "name": "color 7 ",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "rgb( 51, 203,   0)",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1140.380958557129,
+        "y": 3222.6666259765625,
+        "wires": [
+            [
+                "aaa9fb8e9cc56f9c"
+            ]
+        ]
+    },
+    {
+        "id": "e93e2e19c6811e6c",
+        "type": "change",
+        "z": "75782438c74014dc",
+        "name": "color 8",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "rgb(102, 152,   0)",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1141.0475616455078,
+        "y": 3256.6666259765625,
+        "wires": [
+            [
+                "aaa9fb8e9cc56f9c"
+            ]
+        ]
+    },
+    {
+        "id": "5bf8a3b97e0262a3",
+        "type": "change",
+        "z": "75782438c74014dc",
+        "name": "color 9",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "rgb(153, 101,   0)",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1141.0476417541504,
+        "y": 3291.333251953125,
+        "wires": [
+            [
+                "aaa9fb8e9cc56f9c"
+            ]
+        ]
+    },
+    {
+        "id": "5a8bfa68a93350b5",
+        "type": "change",
+        "z": "75782438c74014dc",
+        "name": "color 10",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "rgb(203,  51,   0)",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1154.380958557129,
+        "y": 3325.3333129882812,
+        "wires": [
+            [
+                "aaa9fb8e9cc56f9c"
+            ]
+        ]
+    },
+    {
+        "id": "a60b34d2a6d9ee9d",
+        "type": "change",
+        "z": "75782438c74014dc",
+        "name": "color 11",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "rgb(255,   0,   0)",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1154.3810386657715,
+        "y": 3359.9999389648438,
+        "wires": [
+            [
+                "aaa9fb8e9cc56f9c"
+            ]
+        ]
+    },
+    {
+        "id": "dd059dc738a64bf2",
+        "type": "change",
+        "z": "75782438c74014dc",
+        "name": "gfrValue3 > payload",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.gfrValue3",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 590.8571166992188,
+        "y": 3143.047607421875,
+        "wires": [
+            [
+                "e41e73139252a37c"
+            ]
+        ]
+    },
+    {
+        "id": "49b8e3004ca9453f",
+        "type": "link in",
+        "z": "75782438c74014dc",
+        "name": "grf7",
+        "links": [
+            "639a7ff841dfcbd3"
+        ],
+        "x": 456,
+        "y": 3143,
+        "wires": [
+            [
+                "dd059dc738a64bf2",
+                "13f737c87be84f06"
+            ]
+        ]
+    },
+    {
+        "id": "0952326965fa40ed",
+        "type": "link out",
+        "z": "75782438c74014dc",
+        "name": "toSVG",
+        "mode": "link",
+        "links": [
+            "57e23afdab309308"
+        ],
+        "x": 1440,
+        "y": 3164,
+        "wires": []
+    },
+    {
+        "id": "623c3dfe600be3a5",
+        "type": "inject",
+        "z": "75782438c74014dc",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "rgb(0, 191, 255)",
+        "payload": "{\"command\":\"update_style\",\"selector\":\"#circle13543\",\"attributeName\":\"fill\",\"attributeValue\":\"rgb(0, 191, 255)\"}",
+        "payloadType": "json",
+        "x": 1116,
+        "y": 3447,
+        "wires": [
+            [
+                "0cc650b2bf314dd9"
+            ]
+        ]
+    },
+    {
+        "id": "0cc650b2bf314dd9",
+        "type": "template",
+        "z": "75782438c74014dc",
+        "name": "color grf 2",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "json",
+        "syntax": "mustache",
+        "template": "{    \n \"command\": \"update_style\",\n \"selector\": \"#circle13555\",\n \"attributeName\": \"fill\",\n \"attributeValue\": \"{{payload}}\"\n}\n",
+        "output": "json",
+        "x": 1328.3334350585938,
+        "y": 3643.3809204101562,
+        "wires": [
+            [
+                "a371cc91a8cee545"
+            ]
+        ]
+    },
+    {
+        "id": "b35311e712db0e46",
+        "type": "debug",
+        "z": "75782438c74014dc",
+        "name": "debug 74",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 801.0476684570312,
+        "y": 3571.6666259765625,
+        "wires": []
+    },
+    {
+        "id": "443c7120f572f1b3",
+        "type": "range",
+        "z": "75782438c74014dc",
+        "minin": "0",
+        "maxin": "4096",
+        "minout": "11",
+        "maxout": "1",
+        "action": "roll",
+        "round": true,
+        "property": "payload",
+        "name": "",
+        "x": 788.1904296875,
+        "y": 3621.047607421875,
+        "wires": [
+            [
+                "b35311e712db0e46",
+                "a2465a4cf880556d"
+            ]
+        ]
+    },
+    {
+        "id": "a2465a4cf880556d",
+        "type": "switch",
+        "z": "75782438c74014dc",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "2",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "3",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "4",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "5",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "6",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "7",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "8",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "9",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "10",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "11",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 11,
+        "x": 943.71435546875,
+        "y": 3641.3333129882812,
+        "wires": [
+            [
+                "7308bd503e3d79bc"
+            ],
+            [
+                "f59653a77e79fc0a"
+            ],
+            [
+                "f69d075daff2a1c3"
+            ],
+            [
+                "d288a6db39220527"
+            ],
+            [
+                "311705b6259726a7"
+            ],
+            [
+                "6927d1a15ce7d425"
+            ],
+            [
+                "d2090f1aba51d800"
+            ],
+            [
+                "7777ccdfa135feba"
+            ],
+            [
+                "89436da5273743a8"
+            ],
+            [
+                "b34c97262f7a345e"
+            ],
+            [
+                "78eab455667d907e"
+            ]
+        ]
+    },
+    {
+        "id": "7308bd503e3d79bc",
+        "type": "change",
+        "z": "75782438c74014dc",
+        "name": "color 1",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "rgb(  0,   0, 255)",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1119.7142944335938,
+        "y": 3496,
+        "wires": [
+            [
+                "0cc650b2bf314dd9"
+            ]
+        ]
+    },
+    {
+        "id": "f59653a77e79fc0a",
+        "type": "change",
+        "z": "75782438c74014dc",
+        "name": "color 2",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "rgb(  0,  50, 204)",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1120.3808975219727,
+        "y": 3530,
+        "wires": [
+            [
+                "0cc650b2bf314dd9"
+            ]
+        ]
+    },
+    {
+        "id": "f69d075daff2a1c3",
+        "type": "change",
+        "z": "75782438c74014dc",
+        "name": "color 3",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "rgb(  0, 101, 153)",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1120.3809776306152,
+        "y": 3564.6666259765625,
+        "wires": [
+            [
+                "0cc650b2bf314dd9"
+            ]
+        ]
+    },
+    {
+        "id": "d288a6db39220527",
+        "type": "change",
+        "z": "75782438c74014dc",
+        "name": "color 4",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "rgb(  0, 153, 101)",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1121.0475845336914,
+        "y": 3598.6666259765625,
+        "wires": [
+            [
+                "0cc650b2bf314dd9"
+            ]
+        ]
+    },
+    {
+        "id": "311705b6259726a7",
+        "type": "change",
+        "z": "75782438c74014dc",
+        "name": "color 5",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "rgb(  0, 204,  50)",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1121.7141876220703,
+        "y": 3632.6666259765625,
+        "wires": [
+            [
+                "0cc650b2bf314dd9"
+            ]
+        ]
+    },
+    {
+        "id": "6927d1a15ce7d425",
+        "type": "change",
+        "z": "75782438c74014dc",
+        "name": "color 6 ",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "rgb(  0, 255,   0)",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1121.714267730713,
+        "y": 3667.333251953125,
+        "wires": [
+            [
+                "0cc650b2bf314dd9"
+            ]
+        ]
+    },
+    {
+        "id": "d2090f1aba51d800",
+        "type": "change",
+        "z": "75782438c74014dc",
+        "name": "color 7 ",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "rgb( 51, 203,   0)",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1124.380958557129,
+        "y": 3700.6666259765625,
+        "wires": [
+            [
+                "0cc650b2bf314dd9"
+            ]
+        ]
+    },
+    {
+        "id": "7777ccdfa135feba",
+        "type": "change",
+        "z": "75782438c74014dc",
+        "name": "color 8",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "rgb(102, 152,   0)",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1125.0475616455078,
+        "y": 3734.6666259765625,
+        "wires": [
+            [
+                "0cc650b2bf314dd9"
+            ]
+        ]
+    },
+    {
+        "id": "89436da5273743a8",
+        "type": "change",
+        "z": "75782438c74014dc",
+        "name": "color 9",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "rgb(153, 101,   0)",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1125.0476417541504,
+        "y": 3769.333251953125,
+        "wires": [
+            [
+                "0cc650b2bf314dd9"
+            ]
+        ]
+    },
+    {
+        "id": "b34c97262f7a345e",
+        "type": "change",
+        "z": "75782438c74014dc",
+        "name": "color 10",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "rgb(203,  51,   0)",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1138.380958557129,
+        "y": 3803.3333129882812,
+        "wires": [
+            [
+                "0cc650b2bf314dd9"
+            ]
+        ]
+    },
+    {
+        "id": "78eab455667d907e",
+        "type": "change",
+        "z": "75782438c74014dc",
+        "name": "color 11",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "rgb(255,   0,   0)",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1138.3810386657715,
+        "y": 3837.9999389648438,
+        "wires": [
+            [
+                "0cc650b2bf314dd9"
+            ]
+        ]
+    },
+    {
+        "id": "1f3a5a730b765dc9",
+        "type": "change",
+        "z": "75782438c74014dc",
+        "name": "gfrValue2 > payload",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.gfrValue2",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 574.8571166992188,
+        "y": 3621.047607421875,
+        "wires": [
+            [
+                "443c7120f572f1b3"
+            ]
+        ]
+    },
+    {
+        "id": "017f4541358c8de0",
+        "type": "link in",
+        "z": "75782438c74014dc",
+        "name": "grf7",
+        "links": [
+            "639a7ff841dfcbd3"
+        ],
+        "x": 440,
+        "y": 3621,
+        "wires": [
+            [
+                "1f3a5a730b765dc9",
+                "e01bc3a3fe6deea8"
+            ]
+        ]
+    },
+    {
+        "id": "a371cc91a8cee545",
+        "type": "link out",
+        "z": "75782438c74014dc",
+        "name": "toSVG",
+        "mode": "link",
+        "links": [
+            "57e23afdab309308"
+        ],
+        "x": 1424,
+        "y": 3642,
+        "wires": []
+    },
+    {
+        "id": "127e9d012213cdc3",
+        "type": "inject",
+        "z": "75782438c74014dc",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "rgb(0, 191, 255)",
+        "payload": "{\"command\":\"update_style\",\"selector\":\"#circle13543\",\"attributeName\":\"fill\",\"attributeValue\":\"rgb(0, 191, 255)\"}",
+        "payloadType": "json",
+        "x": 1134,
+        "y": 3918,
+        "wires": [
+            [
+                "3b61d07daac84be5"
+            ]
+        ]
+    },
+    {
+        "id": "3b61d07daac84be5",
+        "type": "template",
+        "z": "75782438c74014dc",
+        "name": "color grf 1",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "json",
+        "syntax": "mustache",
+        "template": "{    \n \"command\": \"update_style\",\n \"selector\": \"#circle13557\",\n \"attributeName\": \"fill\",\n \"attributeValue\": \"{{payload}}\"\n}\n",
+        "output": "json",
+        "x": 1346.3334350585938,
+        "y": 4114.380920410156,
+        "wires": [
+            [
+                "5d24bc85af31d3eb"
+            ]
+        ]
+    },
+    {
+        "id": "2792079760049de0",
+        "type": "debug",
+        "z": "75782438c74014dc",
+        "name": "debug 75",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 819.0476684570312,
+        "y": 4042.6666259765625,
+        "wires": []
+    },
+    {
+        "id": "6b0bcb8bcdc2b2cb",
+        "type": "range",
+        "z": "75782438c74014dc",
+        "minin": "0",
+        "maxin": "4096",
+        "minout": "11",
+        "maxout": "1",
+        "action": "roll",
+        "round": true,
+        "property": "payload",
+        "name": "",
+        "x": 806.1904296875,
+        "y": 4092.047607421875,
+        "wires": [
+            [
+                "2792079760049de0",
+                "a11da9f1ba646630"
+            ]
+        ]
+    },
+    {
+        "id": "a11da9f1ba646630",
+        "type": "switch",
+        "z": "75782438c74014dc",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "2",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "3",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "4",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "5",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "6",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "7",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "8",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "9",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "10",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "11",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 11,
+        "x": 961.71435546875,
+        "y": 4112.333312988281,
+        "wires": [
+            [
+                "32e1625b1093b0f8"
+            ],
+            [
+                "8298572e120480cf"
+            ],
+            [
+                "7dfa0300f8b46125"
+            ],
+            [
+                "4ee2c0e29be75591"
+            ],
+            [
+                "a9824e63163bc33b"
+            ],
+            [
+                "0f751a287b2530c5"
+            ],
+            [
+                "54839e142d94700d"
+            ],
+            [
+                "d37b727d9776e460"
+            ],
+            [
+                "a4b95427681567f5"
+            ],
+            [
+                "6f3568a0be77b122"
+            ],
+            [
+                "918734a555972dab"
+            ]
+        ]
+    },
+    {
+        "id": "32e1625b1093b0f8",
+        "type": "change",
+        "z": "75782438c74014dc",
+        "name": "color 1",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "rgb(  0,   0, 255)",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1137.7142944335938,
+        "y": 3967,
+        "wires": [
+            [
+                "3b61d07daac84be5"
+            ]
+        ]
+    },
+    {
+        "id": "8298572e120480cf",
+        "type": "change",
+        "z": "75782438c74014dc",
+        "name": "color 2",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "rgb(  0,  50, 204)",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1138.3808975219727,
+        "y": 4001,
+        "wires": [
+            [
+                "3b61d07daac84be5"
+            ]
+        ]
+    },
+    {
+        "id": "7dfa0300f8b46125",
+        "type": "change",
+        "z": "75782438c74014dc",
+        "name": "color 3",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "rgb(  0, 101, 153)",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1138.3809776306152,
+        "y": 4035.6666259765625,
+        "wires": [
+            [
+                "3b61d07daac84be5"
+            ]
+        ]
+    },
+    {
+        "id": "4ee2c0e29be75591",
+        "type": "change",
+        "z": "75782438c74014dc",
+        "name": "color 4",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "rgb(  0, 153, 101)",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1139.0475845336914,
+        "y": 4069.6666259765625,
+        "wires": [
+            [
+                "3b61d07daac84be5"
+            ]
+        ]
+    },
+    {
+        "id": "a9824e63163bc33b",
+        "type": "change",
+        "z": "75782438c74014dc",
+        "name": "color 5",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "rgb(  0, 204,  50)",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1139.7141876220703,
+        "y": 4103.6666259765625,
+        "wires": [
+            [
+                "3b61d07daac84be5"
+            ]
+        ]
+    },
+    {
+        "id": "0f751a287b2530c5",
+        "type": "change",
+        "z": "75782438c74014dc",
+        "name": "color 6 ",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "rgb(  0, 255,   0)",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1139.714267730713,
+        "y": 4138.333251953125,
+        "wires": [
+            [
+                "3b61d07daac84be5"
+            ]
+        ]
+    },
+    {
+        "id": "54839e142d94700d",
+        "type": "change",
+        "z": "75782438c74014dc",
+        "name": "color 7 ",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "rgb( 51, 203,   0)",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1142.380958557129,
+        "y": 4171.6666259765625,
+        "wires": [
+            [
+                "3b61d07daac84be5"
+            ]
+        ]
+    },
+    {
+        "id": "d37b727d9776e460",
+        "type": "change",
+        "z": "75782438c74014dc",
+        "name": "color 8",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "rgb(102, 152,   0)",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1143.0475616455078,
+        "y": 4205.6666259765625,
+        "wires": [
+            [
+                "3b61d07daac84be5"
+            ]
+        ]
+    },
+    {
+        "id": "a4b95427681567f5",
+        "type": "change",
+        "z": "75782438c74014dc",
+        "name": "color 9",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "rgb(153, 101,   0)",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1143.0476417541504,
+        "y": 4240.333251953125,
+        "wires": [
+            [
+                "3b61d07daac84be5"
+            ]
+        ]
+    },
+    {
+        "id": "6f3568a0be77b122",
+        "type": "change",
+        "z": "75782438c74014dc",
+        "name": "color 10",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "rgb(203,  51,   0)",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1156.380958557129,
+        "y": 4274.333312988281,
+        "wires": [
+            [
+                "3b61d07daac84be5"
+            ]
+        ]
+    },
+    {
+        "id": "918734a555972dab",
+        "type": "change",
+        "z": "75782438c74014dc",
+        "name": "color 11",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "rgb(255,   0,   0)",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1156.3810386657715,
+        "y": 4308.999938964844,
+        "wires": [
+            [
+                "3b61d07daac84be5"
+            ]
+        ]
+    },
+    {
+        "id": "1fc08e34e7295050",
+        "type": "change",
+        "z": "75782438c74014dc",
+        "name": "gfrValue1 > payload",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.gfrValue1",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 592.8571166992188,
+        "y": 4092.047607421875,
+        "wires": [
+            [
+                "6b0bcb8bcdc2b2cb"
+            ]
+        ]
+    },
+    {
+        "id": "82928a86b1f33b47",
+        "type": "link in",
+        "z": "75782438c74014dc",
+        "name": "grf7",
+        "links": [
+            "639a7ff841dfcbd3"
+        ],
+        "x": 458,
+        "y": 4092,
+        "wires": [
+            [
+                "1fc08e34e7295050",
+                "5b568a5785708f17"
+            ]
+        ]
+    },
+    {
+        "id": "5d24bc85af31d3eb",
+        "type": "link out",
+        "z": "75782438c74014dc",
+        "name": "toSVG",
+        "mode": "link",
+        "links": [
+            "57e23afdab309308"
+        ],
+        "x": 1442,
+        "y": 4113,
+        "wires": []
+    },
+    {
+        "id": "4486b3224f468c15",
+        "type": "change",
+        "z": "75782438c74014dc",
+        "name": "gfrValue8 > chart",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.gfrValue8",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "gfrValue8",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 505,
+        "y": 818,
+        "wires": [
+            [
+                "c818f235c630e7f4"
+            ]
+        ]
+    },
+    {
+        "id": "9ddcf6eaa400c686",
+        "type": "change",
+        "z": "75782438c74014dc",
+        "name": "gfrValue7 > chart",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.gfrValue7",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "gfrValue7",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 526,
+        "y": 1285,
+        "wires": [
+            [
+                "dda381407011f854"
+            ]
+        ]
+    },
+    {
+        "id": "1b26b1b33fae43af",
+        "type": "change",
+        "z": "75782438c74014dc",
+        "name": "gfrValue6 > chart",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.gfrValue6",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "gfrValue6",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 536,
+        "y": 1768,
+        "wires": [
+            [
+                "e34b65acd71ad5c8"
+            ]
+        ]
+    },
+    {
+        "id": "a86b91fcaa3ad0bb",
+        "type": "change",
+        "z": "75782438c74014dc",
+        "name": "gfrValue5 > chart",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.gfrValue5",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "gfrValue5",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 549,
+        "y": 2242,
+        "wires": [
+            [
+                "b6604aaaa2ace6d4"
+            ]
+        ]
+    },
+    {
+        "id": "6ea6ca1ba41af4c5",
+        "type": "change",
+        "z": "75782438c74014dc",
+        "name": "gfrValue4 > chart",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.gfrValue4",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "gfrValue4",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 561,
+        "y": 2713,
+        "wires": [
+            [
+                "0dc81944ef7efb21"
+            ]
+        ]
+    },
+    {
+        "id": "13f737c87be84f06",
+        "type": "change",
+        "z": "75782438c74014dc",
+        "name": "gfrValue3 > chart",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.gfrValue3",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "gfrValue3",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 578,
+        "y": 3191,
+        "wires": [
+            [
+                "bd56449691c54561"
+            ]
+        ]
+    },
+    {
+        "id": "e01bc3a3fe6deea8",
+        "type": "change",
+        "z": "75782438c74014dc",
+        "name": "gfrValue2 > chart",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.gfrValue2",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "gfrValue2",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 561,
+        "y": 3664,
+        "wires": [
+            [
+                "cad4b973c549d1dc"
+            ]
+        ]
+    },
+    {
+        "id": "5b568a5785708f17",
+        "type": "change",
+        "z": "75782438c74014dc",
+        "name": "gfrValue1 > chart",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.gfrValue1",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "gfrValue1",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 580,
+        "y": 4133,
+        "wires": [
+            [
+                "fd14d1c77e998bf3"
+            ]
+        ]
+    },
+    {
+        "id": "b35b748bea9e5cd1",
+        "type": "ui_chart",
+        "z": "75782438c74014dc",
+        "name": "",
+        "group": "7001b6d20850f9aa",
+        "order": 0,
+        "width": "6",
+        "height": "8",
+        "label": "chart",
+        "chartType": "horizontalBar",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "4096",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": true,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1646,
+        "y": 701,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e4fef56315fceae1",
+        "type": "link in",
+        "z": "75782438c74014dc",
+        "name": "chart",
+        "links": [
+            "fd14d1c77e998bf3",
+            "cad4b973c549d1dc",
+            "bd56449691c54561",
+            "0dc81944ef7efb21",
+            "b6604aaaa2ace6d4",
+            "e34b65acd71ad5c8",
+            "dda381407011f854",
+            "c818f235c630e7f4"
+        ],
+        "x": 1525.5,
+        "y": 700,
+        "wires": [
+            [
+                "b35b748bea9e5cd1"
+            ]
+        ]
+    },
+    {
+        "id": "c818f235c630e7f4",
+        "type": "link out",
+        "z": "75782438c74014dc",
+        "name": "tochart",
+        "mode": "link",
+        "links": [
+            "e4fef56315fceae1"
+        ],
+        "x": 642,
+        "y": 817,
+        "wires": []
+    },
+    {
+        "id": "dda381407011f854",
+        "type": "link out",
+        "z": "75782438c74014dc",
+        "name": "tochart",
+        "mode": "link",
+        "links": [
+            "e4fef56315fceae1"
+        ],
+        "x": 653,
+        "y": 1284,
+        "wires": []
+    },
+    {
+        "id": "e34b65acd71ad5c8",
+        "type": "link out",
+        "z": "75782438c74014dc",
+        "name": "tochart",
+        "mode": "link",
+        "links": [
+            "e4fef56315fceae1"
+        ],
+        "x": 659,
+        "y": 1768,
+        "wires": []
+    },
+    {
+        "id": "b6604aaaa2ace6d4",
+        "type": "link out",
+        "z": "75782438c74014dc",
+        "name": "tochart",
+        "mode": "link",
+        "links": [
+            "e4fef56315fceae1"
+        ],
+        "x": 677,
+        "y": 2240,
+        "wires": []
+    },
+    {
+        "id": "0dc81944ef7efb21",
+        "type": "link out",
+        "z": "75782438c74014dc",
+        "name": "tochart",
+        "mode": "link",
+        "links": [
+            "e4fef56315fceae1"
+        ],
+        "x": 690,
+        "y": 2710,
+        "wires": []
+    },
+    {
+        "id": "bd56449691c54561",
+        "type": "link out",
+        "z": "75782438c74014dc",
+        "name": "tochart",
+        "mode": "link",
+        "links": [
+            "e4fef56315fceae1"
+        ],
+        "x": 707,
+        "y": 3189,
+        "wires": []
+    },
+    {
+        "id": "cad4b973c549d1dc",
+        "type": "link out",
+        "z": "75782438c74014dc",
+        "name": "tochart",
+        "mode": "link",
+        "links": [
+            "e4fef56315fceae1"
+        ],
+        "x": 693,
+        "y": 3664,
+        "wires": []
+    },
+    {
+        "id": "fd14d1c77e998bf3",
+        "type": "link out",
+        "z": "75782438c74014dc",
+        "name": "tochart",
+        "mode": "link",
+        "links": [
+            "e4fef56315fceae1"
+        ],
+        "x": 710,
+        "y": 4134,
+        "wires": []
+    },
+    {
+        "id": "1a86fe1f19572621",
+        "type": "serial-port",
+        "serialport": "COM28",
+        "serialbaud": "115200",
+        "databits": "8",
+        "parity": "none",
+        "stopbits": "1",
+        "waitfor": "",
+        "dtr": "none",
+        "rts": "none",
+        "cts": "none",
+        "dsr": "none",
+        "newline": "\\n",
+        "bin": "false",
+        "out": "char",
+        "addchar": "",
+        "responsetimeout": "10000"
+    },
+    {
+        "id": "bdedd999ace51f8e",
+        "type": "ui_group",
+        "name": "svg",
+        "tab": "c69732a48575b974",
+        "order": 1,
+        "disp": true,
+        "width": "16",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "7001b6d20850f9aa",
+        "type": "ui_group",
+        "name": "live-data",
+        "tab": "c69732a48575b974",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "c69732a48575b974",
+        "type": "ui_tab",
+        "name": "smart-sole",
+        "icon": "dashboard",
+        "order": 122,
+        "disabled": false,
+        "hidden": false
+    }
+]
